@@ -7,9 +7,29 @@ import pickle
 from tensorflow.keras.models import load_model
 
 
-st.title('Fraud Detection')
+st.set_page_config(layout="wide")
+image = Image.open("fraud_detection2.png")
+st.image(image,width=1400)
 
-mlmodel = st.selectbox('Please select the maschine learning model',['LogisticRegression','RandomForest','LightGBM','ANN'])
+st.markdown("<h1 style='text-align: center; color: black;'>Fraud Detection</h1>", unsafe_allow_html=True)
+
+st.title('')
+
+st.info('**The datasets contains transactions made by credit cards in September 2013 by european cardholders. This dataset presents transactions that occurred in two days, where it has 492 frauds out of 284,807 transactions. The dataset is highly unbalanced, the positive class (frauds) account for 0.172% of all transactions.**')
+
+st.info('**The aim of this project is to predict whether a credit card transaction is fraudulent, trought using Deep Learning and Machine Learning Models.**')
+
+st.markdown("""
+<style>
+.big-font {
+    font-size:100px !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.subheader('Please select a Maschine Learning or ANN model')
+
+mlmodel = st.selectbox('',['LogisticRegression','RandomForest','LightGBM','ANN'])
 
 
 st.markdown("""
@@ -97,9 +117,12 @@ else:
 
 if st.button('Predict'):
     if pred == 0:
-        st.success('This is a safe Transaction.')
+        st.success('That seems a safe Transaction.')
+        image = Image.open("secure.png")
+        st.image(image,width=240)
     else:
         st.error('That seems a fraud Transaction.')
+        st.markdown("![Alt Text](https://media.giphy.com/media/hgjNPEmAmpCMM/giphy.gif)")
 
 
 
