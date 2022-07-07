@@ -27,7 +27,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.subheader('Please select a Maschine Learning or ANN model')
+st.subheader('Please select a Maschine Learning model or ANN model')
 
 mlmodel = st.selectbox('',['LogisticRegression','RandomForest','LightGBM','ANN'])
 
